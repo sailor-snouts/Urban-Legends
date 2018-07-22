@@ -16,6 +16,7 @@ public class CarController : MonoBehaviour {
     private float steer = 5;
 
     private float speed;
+    private float turn;
 
     void Start () {
 		
@@ -31,10 +32,10 @@ public class CarController : MonoBehaviour {
             this.speed -= this.decceleration * Time.deltaTime;
         }
         this.speed = Mathf.Clamp(this.speed, this.speedMin, this.speedMax);
-        Debug.Log(this.speed);
+        this.turn = Input.GetAxis("Horizontal") * this.steer * Time.deltaTime;
 
         Vector2 currentPosition = transform.position;
-        Vector2 newPosition = new Vector2(currentPosition.x, currentPosition.y + this.speed);
+        Vector2 newPosition = new Vector2(currentPosition.x + this.turn, currentPosition.y + this.speed);
         this.transform.position = newPosition;
     }
 }
