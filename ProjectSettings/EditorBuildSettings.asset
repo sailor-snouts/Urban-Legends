@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Robert.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/PigSquad.unity
     guid: d186adbd51f425744b9ee93a05ab950f
   - enabled: 1
     path: Assets/Scenes/SailorSnouts.unity
     guid: e1ade7abea7933e4c852c99fc3f03946
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 71d59d74593bc7c42a74052510fd391d
+  - enabled: 1
+    path: Assets/Scenes/Robert.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: b4b0befb66b99e8458845e1c3e6096fd
