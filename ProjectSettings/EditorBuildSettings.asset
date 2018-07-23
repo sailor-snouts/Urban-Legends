@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SailorSnouts.unity
     guid: e1ade7abea7933e4c852c99fc3f03946
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: b4b0befb66b99e8458845e1c3e6096fd
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 80c93c97011bc2244a272adc4e1e3851
   m_configObjects: {}
