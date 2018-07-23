@@ -19,7 +19,7 @@ public class CarHealth : MonoBehaviour {
         if(collision.gameObject.tag == "Enemy")
         {
             this.health -= this.dmg;
-            if(this.health < 0)
+            if (this.health <= 0)
             {
                 this.alive = false;
             }
