@@ -5,16 +5,18 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     private GameObject player;
-    private Vector3 offset;
+    private float y_offset;
+    public float followLag = 0.25f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         player = GameObject.Find("Player");
-        offset = transform.position - player.transform.position;
-	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
-        transform.position = player.transform.position + offset;
-	}
+        y_offset = transform.position.y - player.transform.position.y;
+    }
+
+    // Update is called once per frame
+    void LateUpdate() {
+        float adjustedPositionForThisFrame = Mathf.SmoothStep(transform.position.y, player.transform.position.y + y_offset, followLag);
+        transform.position = new Vector3(transform.position.x, adjustedPositionForThisFrame, transform.position.z);
+    }
 }
