@@ -13,9 +13,6 @@ public class SlopeMovement : MonoBehaviour {
     }
 
     void Update() {
-        float amountToMoveThisFrame = speed * Time.deltaTime;
-        Vector2 currentPosition = transform.position;
-        Vector2 newPosition = new Vector2(currentPosition.x + amountToMoveThisFrame, currentPosition.y + amountToMoveThisFrame * slope);
-        this.transform.position = newPosition;
+        transform.position += (transform.right * Time.deltaTime * speed) + (transform.up * Time.deltaTime * speed * slope);
     }
 }
