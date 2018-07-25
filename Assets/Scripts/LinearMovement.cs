@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LinearMovement : MonoBehaviour {
     [SerializeField, Range(0, 15)]
-    private float speed;
+    private float speed = 7.5f;
 
     void Start() {
 
