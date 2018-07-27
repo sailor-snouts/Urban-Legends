@@ -10,6 +10,7 @@ public class EnemyGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         InvokeRepeating("LoadDeer", 0f, 2f);
         InvokeRepeating("LoadBird", 2f, 4f);
         InvokeRepeating("LoadHead", 4f, 5f);
@@ -20,14 +21,14 @@ public class EnemyGenerator : MonoBehaviour {
     }
 
     void LoadDeer() {
-        Instantiate(deer, new Vector3(-4, 0, 0), Quaternion.identity);
+        Instantiate(deer, transform.position + new Vector3(-5, 1, 0), Quaternion.identity);
     }
 
     void LoadBird() {
-        Instantiate(bird, new Vector3(-4, 2, 0), Quaternion.identity);
+        Instantiate(bird, transform.position + new Vector3(-5, 5, 0), Quaternion.identity);
     }
 
     void LoadHead() {
-        Instantiate(head, new Vector3(-4, -2, 0), Quaternion.identity);
+        Instantiate(head, transform.position + new Vector3(-5, -2, 0), Quaternion.identity);
     }
 }
