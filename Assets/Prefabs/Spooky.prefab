@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212680565058634820}
   - component: {fileID: 61545989468243732}
   - component: {fileID: 114538211302536624}
-  - component: {fileID: 114330773854053782}
+  - component: {fileID: 114081209771551694}
   m_Layer: 0
   m_Name: Spooky
   m_TagString: Enemy
@@ -68,7 +68,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.45, y: 3.8}
   m_EdgeRadius: 0
---- !u!114 &114330773854053782
+--- !u!114 &114081209771551694
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -76,10 +76,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463637551670968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03120eacedde577498f8deae1df3291c, type: 3}
+  m_Script: {fileID: 11500000, guid: dfa6e406ca3d685419b20a4180104991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieAtDistance: 20
 --- !u!114 &114538211302536624
 MonoBehaviour:
   m_ObjectHideFlags: 1

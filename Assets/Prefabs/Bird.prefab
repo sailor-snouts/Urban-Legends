@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212565724536479614}
   - component: {fileID: 61172878823563594}
   - component: {fileID: 114498780737793596}
-  - component: {fileID: 114368461567900722}
+  - component: {fileID: 114799997409763924}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Enemy
@@ -68,18 +68,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7, y: 2.4}
   m_EdgeRadius: 0
---- !u!114 &114368461567900722
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1764888931548672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03120eacedde577498f8deae1df3291c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dieAtDistance: 20
 --- !u!114 &114498780737793596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +81,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7.41
   slope: -0.15
+--- !u!114 &114799997409763924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764888931548672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa6e406ca3d685419b20a4180104991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212565724536479614
 SpriteRenderer:
   m_ObjectHideFlags: 1
