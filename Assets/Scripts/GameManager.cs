@@ -1,25 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    private float goalDistance = 100f;
+    private GameObject goal;
+    private GoalController goalController;
+    private GameObject player;
     private CarHealth carHealth;
+    private Distance carDistance;
+    private bool isRunning = true;
 
     void Start()
     {
-        player = GameObject.Find("Player");
-        carHealth = player.GetComponent<CarHealth>();
-      
+        this.goal = GameObject.Find("Goal");
+        this.goalController = this.goal.GetComponent<GoalController>();
+        this.player = GameObject.Find("Player");
+        this.carHealth = player.GetComponent<CarHealth>();
+        this.carDistance = this.player.GetComponent<Distance>();
     }
 
     void Update()
     {
-        //losing state
+        if(!this.isRunning)
+        {
+            return;
+        }
+
+        float progress = Mathf.Clamp01(this.carDistance.GetDistance() / this.goalDistance);
+        this.goalController.setProgress(progress);
+
+        if(progress >= 0.99f)
+        {
+            this.isRunning = false;
+            SceneManager.LoadScene("Win");
+        }
         if (!carHealth.isAlive())
         {
-            Debug.Log("U R D E A D");
+            this.isRunning = false;
+            SceneManager.LoadScene("Lose");
         }
     }
 }

@@ -17,8 +17,8 @@ public class Distance : MonoBehaviour {
         this.distance = Vector2.Distance(this.transform.position, this.start);
     }
 
-    public bool hasTraveled(float distance)
+    public float GetDistance()
     {
-        return this.distance > distance;
+        return this.distance;
     }
 }
