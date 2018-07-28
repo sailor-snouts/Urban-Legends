@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212963250928308732}
   - component: {fileID: 61293654078421214}
   - component: {fileID: 114946608281635918}
+  - component: {fileID: 114414365690345232}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Enemy
@@ -67,6 +68,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.84, y: 3.84}
   m_EdgeRadius: 0
+--- !u!114 &114414365690345232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519152857406658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03120eacedde577498f8deae1df3291c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dieAtDistance: 20
 --- !u!114 &114946608281635918
 MonoBehaviour:
   m_ObjectHideFlags: 1
