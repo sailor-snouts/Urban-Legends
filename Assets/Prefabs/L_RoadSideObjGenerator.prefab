@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4294939577372156}
   - component: {fileID: 114101851196994894}
   m_Layer: 0
-  m_Name: LeftTreeGenerator
+  m_Name: L_RoadSideObjGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,9 +51,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98d43ffbf239404582df0159b03dd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 1480332161234350, guid: 489c8abc13c1b614dbc120da153c81d4, type: 2}
-  lowerPositionBoundary: -2.5
-  upperPositionBoundary: 1.2
-  frequency: 0.4
-  lowerVolumeBoundary: 1
-  upperVolumeBoundary: 3

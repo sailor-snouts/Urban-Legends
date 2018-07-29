@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private CarHealth carHealth;
     private Distance carDistance;
     private bool isRunning = true;
+    public int spookyLevel = 0;
 
     void Start()
     {
@@ -43,5 +44,21 @@ public class GameManager : MonoBehaviour
             this.isRunning = false;
             SceneManager.LoadScene("Lose");
         }
+    }
+
+    public void raiseSpookyLevel() {
+        if(spookyLevel < 3) {
+            spookyLevel++;
+        }
+    }
+
+    public void lowerSpookyLevel() {
+        if(spookyLevel > 0) {
+            spookyLevel--;
+        }
+    }
+
+    public int getSpookyLevel() {
+        return spookyLevel;
     }
 }
