@@ -7,16 +7,20 @@ public class EnemyGenerator : MonoBehaviour {
     public GameObject deer;
     public GameObject bird;
     public GameObject head;
-	
-	void Update ()
+    [SerializeField]
+    float limit = 1f;
+    private float limitCounter = 0;
+
+    void Update ()
     {
-        if (Random.Range(1, 200) <= 1)
+        this.limitCounter -= Time.deltaTime;
+        if (this.limitCounter < 0 && Random.Range(1, 400) <= 1)
         {
             int proc = Random.Range(1, 100);
-            if(proc < 6)
+            if(proc < 60)
             {
                 this.LoadDeer();
-            } else if(proc < 9) {
+            } else if(proc < 90) {
                 this.LoadBird();
             } else
             {
@@ -26,14 +30,14 @@ public class EnemyGenerator : MonoBehaviour {
     }
 
     void LoadDeer() {
-        Instantiate(deer, transform.position + new Vector3(-5, 1, 0), Quaternion.identity);
+        Instantiate(deer, transform.position + new Vector3(-5, Random.Range(0,6f), 0), Quaternion.identity);
     }
 
     void LoadBird() {
-        Instantiate(bird, transform.position + new Vector3(-5, 5, 0), Quaternion.identity);
+        Instantiate(bird, transform.position + new Vector3(-5, Random.Range(0, 6f), 0), Quaternion.identity);
     }
 
     void LoadHead() {
-        Instantiate(head, transform.position + new Vector3(-5, -2, 0), Quaternion.identity);
+        Instantiate(head, transform.position + new Vector3(-5, Random.Range(0, 6f), 0), Quaternion.identity);
     }
 }
