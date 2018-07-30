@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4235088450454306}
   - component: {fileID: 212282069720671792}
   m_Layer: 0
-  m_Name: LivingTree
+  m_Name: Tree
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

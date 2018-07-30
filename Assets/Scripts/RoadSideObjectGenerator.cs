@@ -5,13 +5,18 @@ using UnityEngine;
 public class RoadSideObjectGenerator : MonoBehaviour {
 
     public RoadSideObject tree;
+    public RoadSideObject speedSign;
     private GameManager gameManager;
+    private Vector3 rightOffset = new Vector3(3.6f, 0, 0);
+    private Vector3 leftOffset = new Vector3(-3.6f, 0, 0);
 
     // Use this for initialization
     void Start() {
         gameManager = GameObject.Find("Gamemanager").GetComponent<GameManager>();
         tree = new Tree();
-        InvokeRepeating("LoadTree", 0f, tree.frequency);
+        speedSign = new SpeedSign();
+        InvokeRepeating("LoadTree", tree.firstSeen, tree.frequency);
+        InvokeRepeating("LoadSpeedSign", speedSign.firstSeen, speedSign.frequency);
     }
 
     // Update is called once per frame
@@ -19,16 +24,31 @@ public class RoadSideObjectGenerator : MonoBehaviour {
     }
 
     void LoadTree() {
+        int leftZoneSpawns = Random.Range(tree.leftLowerVolumeBoundary, tree.leftUpperVolumeBoundary);
+        int rightZoneSpawns = Random.Range(tree.rightLowerVolumeBoundary, tree.rightUpperVolumeBoundary);
+        SpawnObject(tree, leftZoneSpawns, true);
+        SpawnObject(tree, rightZoneSpawns, false);
+    }
+
+    void LoadSpeedSign() {
+        int rightZoneSpawns = Random.Range(speedSign.rightLowerVolumeBoundary, speedSign.rightUpperVolumeBoundary);
+        SpawnObject(speedSign, rightZoneSpawns, false);
+    }
+
+    void SpawnObject(RoadSideObject objectToSpawn, int objectsToSpawn, bool isLeftSide) {
         GameObject instantiatedObject;
-        int numberOfTreesToSpawn = Random.Range(tree.lowerVolumeBoundary, tree.upperVolumeBoundary);
-        for (int i = 0; i < numberOfTreesToSpawn; i++) {
-            Vector3 position = new Vector3(Random.Range(tree.lowerPositionBoundary, tree.upperPositionBoundary), 1, 0);
-            if(gameManager.getSpookyLevel() <= 0) {
-                instantiatedObject = Instantiate(tree.normal, transform.position + position, Quaternion.identity);
+        for (int i = 0; i < objectsToSpawn; i++) {
+            Vector3 position;
+            if(isLeftSide) {
+                position = new Vector3(Random.Range(-objectToSpawn.lowerPositionBoundary, -objectToSpawn.upperPositionBoundary), 1, 0) + leftOffset;
             } else {
-                instantiatedObject = Instantiate(tree.spooky, transform.position + position, Quaternion.identity);
+                position = new Vector3(Random.Range(objectToSpawn.lowerPositionBoundary, objectToSpawn.upperPositionBoundary), 1, 0) + rightOffset;
             }
-            //Just add cleanup script here instead of having to remember to add it to every prefab
+            if (gameManager.getSpookyLevel() <= 0) {
+                instantiatedObject = Instantiate(objectToSpawn.normal, transform.position + position, Quaternion.identity);
+            } else {
+                instantiatedObject = Instantiate(objectToSpawn.spooky, transform.position + position, Quaternion.identity);
+            }
             instantiatedObject.AddComponent<Cleanup>();
         }
     }
