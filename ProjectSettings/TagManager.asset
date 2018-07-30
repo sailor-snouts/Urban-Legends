@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Billboard
   layers:
   - Default
   - TransparentFX

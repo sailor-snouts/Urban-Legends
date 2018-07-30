@@ -6,17 +6,24 @@ public class RoadSideObjectGenerator : MonoBehaviour {
 
     public RoadSideObject tree;
     public RoadSideObject speedSign;
+    public RoadSideObject billboard;
+
     private GameManager gameManager;
+
     private Vector3 rightOffset = new Vector3(3.6f, 0, 0);
     private Vector3 leftOffset = new Vector3(-3.6f, 0, 0);
 
     // Use this for initialization
     void Start() {
         gameManager = GameObject.Find("Gamemanager").GetComponent<GameManager>();
+
         tree = new Tree();
         speedSign = new SpeedSign();
+        billboard = new Billboard();
+
         InvokeRepeating("LoadTree", tree.firstSeen, tree.frequency);
         InvokeRepeating("LoadSpeedSign", speedSign.firstSeen, speedSign.frequency);
+        InvokeRepeating("LoadBillboard", billboard.firstSeen, billboard.frequency);
     }
 
     // Update is called once per frame
@@ -33,6 +40,13 @@ public class RoadSideObjectGenerator : MonoBehaviour {
     void LoadSpeedSign() {
         int rightZoneSpawns = Random.Range(speedSign.rightLowerVolumeBoundary, speedSign.rightUpperVolumeBoundary);
         SpawnObject(speedSign, rightZoneSpawns, false);
+    }
+
+    void LoadBillboard() {
+        int leftZoneSpawns = Random.Range(billboard.leftLowerVolumeBoundary, billboard.leftUpperVolumeBoundary);
+        int rightZoneSpawns = Random.Range(billboard.rightLowerVolumeBoundary, billboard.rightUpperVolumeBoundary);
+        SpawnObject(billboard, leftZoneSpawns, true);
+        SpawnObject(billboard, rightZoneSpawns, false);
     }
 
     void SpawnObject(RoadSideObject objectToSpawn, int objectsToSpawn, bool isLeftSide) {
