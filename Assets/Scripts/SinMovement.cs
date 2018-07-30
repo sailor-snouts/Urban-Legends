@@ -10,9 +10,9 @@ public class SinMovement : MonoBehaviour {
     [SerializeField, Range(0, 15)]
     private float horizontalSpeed = 6.0f;
     [SerializeField, Range(0, 25)]
-    public float frequency = 12.0f;  // Speed of sine movement
+    public float frequency = 2.0f;  // Speed of sine movement
     [SerializeField, Range(0, 2)]
-    public float magnitude = 1f;   // Size of sine movement
+    public float magnitude = 0.5f;   // Size of sine movement
     private Vector3 axis;
     private Vector3 pos;
 

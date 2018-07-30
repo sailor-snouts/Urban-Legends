@@ -10,8 +10,8 @@ public class RoadSideObjectGenerator : MonoBehaviour {
 
     private GameManager gameManager;
 
-    private Vector3 rightOffset = new Vector3(3.6f, 0, 0);
-    private Vector3 leftOffset = new Vector3(-3.6f, 0, 0);
+    private Vector3 rightOffset = new Vector3(1.8f, 0, 0);
+    private Vector3 leftOffset = new Vector3(-1.8f, 0, 0);
 
     // Use this for initialization
     void Start() {

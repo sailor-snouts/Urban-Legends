@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 6
-  frequency: 12
-  magnitude: 1
+  frequency: 8
+  magnitude: 0.5
 --- !u!212 &212680565058634820
 SpriteRenderer:
   m_ObjectHideFlags: 1

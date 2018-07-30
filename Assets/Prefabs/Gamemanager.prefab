@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b51e723697e4796af84f13161dbefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalDistance: 50
+  goalDistance: 200
+  spookyLevel: 0

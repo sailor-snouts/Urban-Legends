@@ -7,17 +7,22 @@ public class EnemyGenerator : MonoBehaviour {
     public GameObject deer;
     public GameObject bird;
     public GameObject head;
-
-	// Use this for initialization
-	void Start () {
-
-        InvokeRepeating("LoadDeer", 0f, 2f);
-        InvokeRepeating("LoadBird", 2f, 4f);
-        InvokeRepeating("LoadHead", 4f, 5f);
-    }
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        if (Random.Range(1, 200) <= 1)
+        {
+            int proc = Random.Range(1, 100);
+            if(proc < 6)
+            {
+                this.LoadDeer();
+            } else if(proc < 9) {
+                this.LoadBird();
+            } else
+            {
+                this.LoadHead();
+            }
+        }
     }
 
     void LoadDeer() {
