@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Billboard : RoadSideObject {
 
-    public Billboard(): base(Resources.Load("Prefabs/Billboard") as GameObject, Resources.Load("Prefabs/SpookyBillboard") as GameObject) {
+    public Billboard(): base(
+        new List<GameObject> {
+            Resources.Load("Prefabs/Billboard") as GameObject,
+            Resources.Load("Prefabs/WoodenSign") as GameObject,
+            Resources.Load("Prefabs/BlankBillboard") as GameObject },
+        new List<GameObject> {
+            Resources.Load("Prefabs/SpookyBillboard") as GameObject,
+            Resources.Load("Prefabs/SpookyWoodenSign") as GameObject }) {
+
         firstSeen = 2f;
         frequency = 2f;
         lowerPositionBoundary = 5f;

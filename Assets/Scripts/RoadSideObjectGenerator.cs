@@ -59,9 +59,9 @@ public class RoadSideObjectGenerator : MonoBehaviour {
                 position = new Vector3(Random.Range(objectToSpawn.lowerPositionBoundary, objectToSpawn.upperPositionBoundary), 1, 0) + rightOffset;
             }
             if (gameManager.getSpookyLevel() <= 0) {
-                instantiatedObject = Instantiate(objectToSpawn.normal, transform.position + position, Quaternion.identity);
+                instantiatedObject = Instantiate(objectToSpawn.getNormalVariation(), transform.position + position, Quaternion.identity);
             } else {
-                instantiatedObject = Instantiate(objectToSpawn.spooky, transform.position + position, Quaternion.identity);
+                instantiatedObject = Instantiate(objectToSpawn.getSpookyVariation(), transform.position + position, Quaternion.identity);
             }
             instantiatedObject.AddComponent<Cleanup>();
         }

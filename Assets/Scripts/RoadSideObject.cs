@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RoadSideObject {
     //specify the sprites to load
-    public GameObject normal;
-    public GameObject spooky;
+    private List<GameObject> normalVariations = new List<GameObject>();
+    private List<GameObject> spookyVariations = new List<GameObject>();
 
     //when is the earliest this object should be seen
     public float firstSeen = 0f;
@@ -31,8 +31,25 @@ public class RoadSideObject {
     //what is the minimum number of times this object shoould appear when it has a chance to spawn on the left side
     public int leftUpperVolumeBoundary = 3;
 
-    public RoadSideObject(GameObject normalObj, GameObject spookyObj) {
-        normal = normalObj;
-        spooky = spookyObj;
+    public RoadSideObject(List<GameObject> normals, List<GameObject> spookies) {
+        normalVariations = normals;
+        spookyVariations = spookies;
+    }
+
+    public RoadSideObject(GameObject normal, GameObject spooky) {
+        normalVariations.Add(normal);
+        spookyVariations.Add(spooky);
+    }
+
+    public GameObject getNormalVariation() {
+        Random rnd = new Random();
+        int randomIndex = Random.Range(0, normalVariations.Count);
+        return normalVariations[randomIndex];
+    }
+
+    public GameObject getSpookyVariation() {
+        Random rnd = new Random();
+        int randomIndex = Random.Range(0, spookyVariations.Count);
+        return spookyVariations[randomIndex];
     }
 }
