@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoadSideObject {
-
     public GameObject normal;
     public GameObject spooky;
     [SerializeField, Range(-5f, 0f)]
@@ -17,14 +16,8 @@ public class RoadSideObject {
     [SerializeField, Range(0, 5)]
     public int upperVolumeBoundary = 3;
 
-    public RoadSideObject() {
-        //would be nice if we had a default object we could set, but that's more work than it's worth atm
-    }
-
     public RoadSideObject(GameObject normalObj, GameObject spookyObj) {
         normal = normalObj;
         spooky = spookyObj;
     }
-
-    
 }
