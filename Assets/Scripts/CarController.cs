@@ -14,6 +14,8 @@ public class CarController : MonoBehaviour {
     private float decceleration = 5;
     [SerializeField, Range(0, 10)]
     private float steer = 5;
+    [SerializeField, Range(0, 10)]
+    private float clamp = 1.3f;
 
     private float speed;
     private float turn;
@@ -35,7 +37,7 @@ public class CarController : MonoBehaviour {
         this.turn = Input.GetAxis("Horizontal") * this.steer * Time.deltaTime;
 
         Vector2 currentPosition = transform.position;
-        Vector2 newPosition = new Vector2(currentPosition.x + this.turn, currentPosition.y + this.speed);
+        Vector2 newPosition = new Vector2(Mathf.Clamp(currentPosition.x + this.turn, this.clamp*-1f, this.clamp), currentPosition.y + this.speed);
         this.transform.position = newPosition;
     }
 }
