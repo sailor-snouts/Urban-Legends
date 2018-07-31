@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
         float progress = Mathf.Clamp01(this.carDistance.GetDistance() / this.goalDistance);
         this.goalController.setProgress(progress);
 
+        if(progress >= 0.50f) {
+            raiseSpookyLevel();
+        }
+
         if(progress >= 0.99f)
         {
             this.isRunning = false;

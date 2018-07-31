@@ -15,8 +15,11 @@ public class GoalController : MonoBehaviour {
 
     public void setProgress(float progress)
     {
-
         this.progress = Mathf.Clamp01(progress);
+    }
+
+    public float getProgress() {
+        return progress;
     }
 
     private void Start()
