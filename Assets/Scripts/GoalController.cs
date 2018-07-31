@@ -30,7 +30,7 @@ public class GoalController : MonoBehaviour {
 
     void Update ()
     {
-        Vector3 cPosition = Camera.main.ScreenToWorldPoint(new Vector3(900, 300, 0));
+        Vector3 cPosition = Camera.main.ScreenToWorldPoint(new Vector3(1850, 600, 0));
         Vector3 position = new Vector3(cPosition.x, cPosition.y, 0);
         this.transform.position = position;
         this.icon.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + this.start + this.progress * this.delta);
